@@ -53,7 +53,7 @@ class AlfaBank implements BankInterface
     public function getTransactionById($transactionId)
     {
         $response = $this->request('getOrderStatusExtended.do', ['orderId' => $transactionId]);
-        return $response;
+
         if (isset($response['errorCode']) && $response['errorCode'] == 6) {
             throw new TransactionNotFoundException($transactionId);
         }
